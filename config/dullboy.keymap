@@ -69,10 +69,10 @@ keymap {
 base_qwerty {
   label = "Base";
   bindings = <
-    &kp Q           &kp W        &kp E         &kp R        &kp T                &kp Y                &kp U        &kp I         &kp O        &kp P
-    &ml MS A        &hml LGUI S  &hml LCTRL D  &hml LALT F  &hml LC(RSHFT) G     &hmr LC(RSHFT) H     &hmr LALT J  &hmr LCTRL K  &hmr LGUI L  &ml MS_PRIME SEMI
-    &ml MS_PRIME Z  &kp X        &bc           &kp C        &kp V                &kp B                &kp N        &kp M         &ls ACC ACC  &ml MS PERIOD
-    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+    &kp Q       &kp W      &kp E              &kp R             &kp T                 &kp Y          &kp U                 &kp I       &kp O       &kp P
+    &ht_mokp_b220 MS A &ht_kpkp_b220_l LGUI S &ht_kpkp_b220_l LCTRL D    &ht_kpkp_b220_l LALT F      &lt CAR G             &lt CAR H      &ht_kpkp_b220_r LALT J          &ht_kpkp_b220_r LCTRL K &ht_kpkp_b220_r LGUI L  &ht_mokp_b220 MS SEMI
+    &kp Z       &kp X      &sl ACC     &kp C             &kp V                 &kp B          &kp N                 &kp M       &kp COMMA   &kp PERIOD
+    &none       &none      &lt FL SPACE       &lt NAV BACKSPACE &mt RIGHT_SHIFT ENTER &lt NAV ENTER  &mt RIGHT_SHIFT SPACE &lt FL TAB  &none       &none
   >;
 };
 #endif
@@ -81,10 +81,10 @@ base_qwerty {
 base_colemak {
   label = "Base";
   bindings = <
-    &kp Q           &kp W        &kp F         &kp P        &kp G                &kp J                &kp L        &kp U         &kp Y        &ls ACC ACC
-    &ml MS A        &hml LGUI R  &hml LCTRL S  &hml LALT T  &hml LC(RSHFT) D     &hmr LC(RSHFT) H     &hmr LALT N  &hmr LCTRL E  &hmr LGUI I  &ml MS_PRIME O
-    &ml MS_PRIME Z  &kp X        &bc           &kp C        &kp V                &kp B                &kp K        &kp M         &kp COMMA    &ml MS PERIOD
-    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+    &kp Q       &kp W      &kp F              &kp P             &kp G                 &kp J          &kp L                 &kp U       &kp Y       &kp SEMI
+    &ht_mokp_b220 MS A &ht_kpkp_b220_l LGUI R &ht_kpkp_b220_l LCTRL S    &ht_kpkp_b220_l LALT T      &lt CAR D             &lt CAR H      &ht_kpkp_b220_r LALT N          &ht_kpkp_b220_r LCTRL E &ht_kpkp_b220_r LGUI I  &ht_mokp_b220 MS O
+    &kp Z       &kp X      &sl ACC     &kp C             &kp V                 &kp B          &kp K                 &kp M       &kp COMMA   &kp PERIOD
+    &none       &none      &lt FL SPACE       &lt NAV BACKSPACE &mt RIGHT_SHIFT ENTER &lt NAV ENTER  &mt RIGHT_SHIFT SPACE &lt FL TAB  &none       &none
   >;
 };
 #endif
@@ -93,10 +93,10 @@ base_colemak {
 base_workman {
   label = "Base";
   bindings = <
-    &kp Q           &kp D        &kp R         &kp W        &kp B                &kp J                &kp F        &kp U         &kp P        &ls ACC ACC
-    &ml MS A        &hml LGUI S  &hml LCTRL H  &hml LALT T  &hml LC(RSHFT) G     &hmr LC(RSHFT) Y     &hmr LALT N  &hmr LCTRL E  &hmr LGUI O  &ml MS_PRIME I
-    &ml MS_PRIME Z  &kp X        &bc           &kp M        &kp C                &kp V                &kp K        &kp L         &kp COMMA    &ml MS PERIOD
-    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+    &kp Q       &kp D      &kp R              &kp W             &kp B                 &kp J          &kp F                 &kp U       &kp P       &kp SEMI
+    &ht_mokp_b220 MS A &ht_kpkp_b220_l LGUI S &ht_kpkp_b220_l LCTRL H    &ht_kpkp_b220_l LALT T      &lt CAR G             &lt CAR Y      &ht_kpkp_b220_r LALT N          &ht_kpkp_b220_r LCTRL E &ht_kpkp_b220_r LGUI O  &ht_mokp_b220 MS I
+    &kp Z       &kp X      &sl ACC     &kp M             &kp C                 &kp V          &kp K                 &kp L       &kp COMMA   &kp PERIOD
+    &none       &none      &lt FL SPACE       &lt NAV BACKSPACE &mt RIGHT_SHIFT ENTER &lt NAV ENTER  &mt RIGHT_SHIFT SPACE &lt FL TAB  &none       &none
   >;
 };
 #endif
@@ -105,10 +105,10 @@ base_workman {
 base_dvorak {
   label = "Base";
   bindings = <
-    &ls ACC ACC     &kp COMMA    &kp PERIOD    &kp P        &kp Y                &kp F                &kp G        &kp C         &kp R        &kp L
-    &ml MS A        &hml LGUI O  &hml LCTRL E  &hml LALT U  &hml LC(RSHFT) I     &hmr LC(RSHFT) D     &hmr LALT H  &hmr LCTRL T  &hmr LGUI N  &ml MS_PRIME S
-    &ml MS_PRIME Z  &kp Q        &bc           &kp J        &kp K                &kp X                &kp B        &kp M         &kp W        &ml MS V
-    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+    &kp APOSTROPHE &kp COMMA  &kp PERIOD         &kp P             &kp Y                 &kp F          &kp G                 &kp C       &kp R       &kp L
+    &ht_mokp_b220 MS A &ht_kpkp_b220_l LGUI O &ht_kpkp_b220_l LCTRL E    &ht_kpkp_b220_l LALT U      &lt CAR I             &lt CAR D      &ht_kpkp_b220_r LALT H          &ht_kpkp_b220_r LCTRL T &ht_kpkp_b220_r LGUI N  &ht_mokp_b220 MS S
+    &kp SEMI    &kp Q      &sl ACC     &kp J             &kp K                 &kp X          &kp B                 &kp M       &kp W       &kp V
+    &none       &none      &lt FL SPACE       &lt NAV BACKSPACE &mt RIGHT_SHIFT ENTER &lt NAV ENTER  &mt RIGHT_SHIFT SPACE &lt FL TAB  &none       &none
   >;
 };
 #endif
@@ -117,10 +117,10 @@ base_dvorak {
 base_ergol {
   label = "Base";
   bindings = <
-    &kp Q           &kp C        &kp O         &kp P        &kp W                &kp J                &kp M        &kp D         &ls ACC ACC  &kp Z
-    &ml MS A        &hml LGUI S  &hml LCTRL E  &hml LALT N  &hml LC(RSHFT) F     &hmr LC(RSHFT) L     &hmr LALT R  &hmr LCTRL T  &hmr LGUI I  &ml MS_PRIME U
-    &ml MS_PRIME Y  &kp X        &bc           &kp V        &kp B                &kp PERIOD           &kp H        &kp G         &kp COMMA    &ml MS K
-    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+    &kp Q       &kp C      &kp O           &kp P      &kp W           &kp J           &kp M      &kp D       &ht_mosl_b220 ACC ACC &kp Z
+    &ht_mokp_b220 MS A &ht_kpkp_b220_l LGUI S &ht_kpkp_b220_l LCTRL E &ht_kpkp_b220_l LALT N &ht_kpkp_b220_l LC(RSHFT) F &ht_kpkp_b220_r LC(RSHFT) L &ht_kpkp_b220_r LALT R &ht_kpkp_b220_r LCTRL T &ht_kpkp_b220_r LGUI I &ht_mokp_b220 MS_PRIME U
+    &ht_mokp_b220 MS_PRIME Y       &kp X      &backctrl &kp V      &kp B           &kp PERIOD      &kp H      &kp G       &kp COMMA       &ht_mokp_b220 MS K
+    &none       &none      &lt FL TAB      &ht_mosl_b220 NAV CAR &ht_mokp_h180 NAV_PRIME ENTER &ht_mokp_h180 NAV_PRIME ENTER &ht_mmmm_h200i10 0 0 &lt FL TAB &none &none
   >;
 };
 #endif
@@ -129,11 +129,10 @@ base_ergol {
 nav {
   label = "Nav";
   bindings = <
-    &hml LGUI ESC  &home     &kp UP           &end       &kp PG_UP       &nh     &n7               &n8               &n9    &np
-    &ctd           &kp LEFT  &kp DOWN         &kp RIGHT  &mb LC(LGUI) 0  &nc     &n4               &n5               &n6    &n0
-    &kp LEFT_ALT   &kp F2    &kp F4           &kp TAB    &kp PG_DN       &nd     &n1               &n2               &n3    &ne
-    &none          &none     &lst MS_PRIME 0  &trans     &trans          &trans  &mt RSHIFT SPACE  &lt MS_PRIME TAB  &none  &none
-  >;
+    &ht_kpkp_b220_l LGUI ESC      &home_with_ctrl_gui    &kp UP     &end_with_ctrl_gui    &kp PG_UP           &nav_hash_at    &nav_7_ampr      &nav_8_ast  &nav_9_apos  &nav_pct_grave
+    &ctrl_senter_td                &kp LEFT                &kp DOWN   &kp RIGHT             &ht_kpmm_h150 LC(LGUI) 0    &nav_com_bslh   &nav_4_plus      &nav_5_min  &nav_6_slsh  &nav_0_dquo
+    &kp LEFT_ALT                   &kp F2                  &kp F4     &kp TAB               &kp PG_DN           &nav_dot_pipe   &nav_1_excl      &nav_2_sem   &nav_3_col   &nav_eql_ques
+&none  &none  &ht_momm_t70 MS_PRIME 0  &trans  &trans  &trans  &mt RSHIFT SPACE  &lt MS_PRIME TAB  &none  &none  >;
 };
 #endif
 
@@ -141,10 +140,10 @@ nav {
 nav_prime {
   label = "Nav_prime";
   bindings = <
-    &np    &n7    &n8         &n9               &nh     &kp PG_UP       &home             &kp UP           &end       &hml LGUI ESC
-    &n0    &n4    &n5         &n6               &nc     &mb LC(LGUI) 0  &kp LEFT          &kp DOWN         &kp RIGHT  &ctd
-    &ne    &n1    &n2         &n3               &nd     &kp PG_DN       &kp TAB           &kp F4           &kp F2     &mt LEFT_ALT LS(ENTER)
-    &none  &none  &lt MS TAB  &mt RSHIFT SPACE  &trans  &trans          &mt RSHIFT SPACE  &lst MS_PRIME 0  &none      &none
+    &nav_pct_grave  &nav_7_ampr  &nav_8_ast  &nav_9_apos       &nav_hash_at    &kp PG_UP        &home_with_ctrl_gui       &kp UP       &end_with_ctrl_gui  &ht_kpkp_b220_l LGUI ESC
+    &nav_0_dquo     &nav_4_plus  &nav_5_min  &nav_6_slsh       &nav_com_bslh   &ht_kpmm_h150 LC(LGUI) 0 &kp LEFT     &kp DOWN     &kp RIGHT           &ctrl_senter_td
+    &nav_eql_ques   &nav_1_excl  &nav_2_sem  &nav_3_col        &nav_dot_pipe   &kp PG_DN        &kp TAB                   &kp F4       &kp F2              &mt LEFT_ALT LS(ENTER)
+    &none           &none        &lt MS TAB &mt RSHIFT SPACE &trans         &trans           &mt RSHIFT SPACE          &ht_momm_t70 MS_PRIME 0 &none &none
   >;
 };
 #endif
@@ -153,10 +152,10 @@ nav_prime {
 acc {
   label = "Acc";
   bindings = <
-    &acm   &cedm   &ocm   &odm         &oem    &kp CH_DEG   &idm                &icm         &ls CAR CAR  &ucm
-    &agm   &eam   &egm   &ecm         &edm    &osm         &usm                &kp CH_MIN   &udm         &ugm
-    &adm   &laq   &raq   &endash      &emd    &kp CH_DTLD  &kp CH_DACU         &kp CH_DGRV  &kp CH_DCIR  &kp CH_DDIA
-    &none  &none  &nbsp  &ls CAR NAV  &trans  &kp CH_DEG   &al MAJACC CH_APOS  &nbsp        &none        &none
+    &a_circ_minmaj   &cced_minmaj    &o_circ_minmaj   &o_dier_minmaj  &oe_minmaj       &at_ss      &i_dier_minmaj   &i_circ_minmaj TEXT_DEG      &u_circ_minmaj
+    &a_grav_minmaj   &e_acut_minmaj  &e_grav_minmaj   &e_circ_minmaj  &e_dier_minmaj   &os_dotm    &und_os          &kp MINUS     &u_dier_minmaj  &u_grav_minmaj
+    &a_dier_minmaj   &laq            &raq             &endash         &emd             ACC_TILDE ACC_ACUTE      ACC_GRAVE    ACC_CIRC     ACC_DIAERESIS
+    &none            &none           &nbsp            &sk RIGHT_SHIFT &trans       TEXT_DEG      &ht_mokp_b250w MAJACC APOSTROPHE     &nbsp          &none           &none
   >;
 };
 #endif
@@ -165,10 +164,10 @@ acc {
 majacc {
   label = "MajAcc";
   bindings = <
-    &a_circ_caps  &S_Cc         &o_circ_caps  &o_dier_caps     &S_OE         &ss          &i_dier_caps  &i_circ_caps  &kp CH_DEG    &u_circ_caps
-    &a_grav_caps  &e_acut_caps  &e_grav_caps  &e_circ_caps     &e_dier_caps  &dotm        &S_Os         &kp CH_MIN    &u_dier_caps  &u_grav_caps
-    &a_dier_caps  &laq          &raq          &endash          &emd          &kp CH_DTLD  &kp CH_DACU   &kp CH_DGRV   &kp CH_DCIR   &kp CH_DDIA
-    &none         &none         &nbsp         &sk RIGHT_SHIFT  &in           &kp CH_DEG   &kp CH_APOS   &nbsp         &none         &none
+    &a_circ_caps     &S_Cc           &o_circ_caps     &o_dier_caps    &S_OE           &ss        &i_dier_caps     &i_circ_caps    TEXT_DEG   &u_circ_caps
+    &a_grav_caps     &e_acut_caps    &e_grav_caps     &e_circ_caps    &e_dier_caps    &dotm      &S_Os            &kp MINUS      &u_dier_caps &u_grav_caps
+    &a_dier_caps     &laq            &raq             &endash         &emd            ACC_TILDE ACC_ACUTE      ACC_GRAVE    ACC_CIRC  ACC_DIAERESIS
+    &none            &none           &nbsp            &sk RIGHT_SHIFT &in             TEXT_DEG     &kp APOSTROPHE &nbsp          &none          &none
   >;
 };
 #endif
@@ -177,10 +176,10 @@ majacc {
 car {
   label = "Car";
   bindings = <
-    &dead_circ_spc  &kp CH_LT    &kp CH_GT    &kp CH_DLR   &kp CH_PCT  &kp CH_AT    &kp CH_AMPR  &kp CH_AST  &kp CH_APOS  &dead_grave_spc
-    &kp CH_LCBR     &kp CH_LPAR  &kp CH_RPAR  &kp CH_RCBR  &kp CH_EQL  &kp CH_BSLH  &kp CH_PLUS  &kp CH_MIN  &kp CH_SLSH  &kp CH_DQUO
-    &dead_tild_spc  &kp CH_LBRK  &kp CH_RBRK  &kp CH_UND   &nh         &kp CH_PIPE  &kp CH_EXCL  &kp CH_SEM  &kp CH_COL   &kp CH_QUES
-    &none           &none        &nbsp        &trans       &pmil       &kp CH_DEG   &trans       &nbsp       &none        &none
+    &dead_circ_spc   &kp LESS_THAN     &kp GREATER_THAN    &kp DOLLAR     &kp PERCENT   &kp AT    &kp AMPERSAND           &kp ASTERISK   &kp APOSTROPHE  &dead_grave_spc
+    &kp LEFT_BRACE      &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE    &kp EQUAL   &kp BACKSLASH  &kp PLUS           &kp MINUS   &kp SLASH  &kp DOUBLE_QUOTES
+    &dead_tild_spc   &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp UNDERSCORE     &nav_hash_at   &kp PIPE  &kp EXCLAMATION           &kp SEMICOLON   &kp COLON   &kp QUESTION
+    &none            &none         &nbsp        &trans &pmil  TEXT_DEG  &trans &nbsp        &none        &none
   >;
 };
 #endif
@@ -189,10 +188,10 @@ car {
 fl {
   label = "Fun";
   bindings = <
-    &kp F9  &kp F10  &kp F11  &kp F12  &mdp1_macro  &kp INSERT            &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP  &kp LC(LA(DEL))
-    &kp F1  &kp F2   &kp F3   &kp F4   &mdp2_macro  &kp C_BRIGHTNESS_DEC  &kp LEFT_ALT       &kp LEFT_CONTROL  &kp LEFT_SHIFT   &kp C_BRIGHTNESS_INC
-    &kp F5  &kp F6   &kp F7   &kp F8   &mdp3_macro  &bt BT_CLR_ALL        &bt BT_SEL 0       &bt BT_SEL 1      &bt BT_SEL 2     &bt BT_SEL 3
-    &none   &none    &trans   &trans   &trans       &trans                &trans             &trans            &none            &none
+    &kp F9  &kp F10 &kp F11 &kp F12 &mdp1_macro   &kp INSERT         &kp C_VOLUME_DOWN &kp C_MUTE       &kp C_VOLUME_UP &kp LC(LA(DEL))
+    &kp F1  &kp F2  &kp F3  &kp F4  &mdp2_macro   &kp C_BRIGHTNESS_DEC &kp LEFT_ALT      &kp LEFT_CONTROL &kp LEFT_SHIFT  &kp C_BRIGHTNESS_INC
+    &kp F5  &kp F6  &kp F7  &kp F8  &mdp3_macro    &bt BT_CLR_ALL       &bt BT_SEL 0      &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3
+    &none   &none   &trans  &trans  &trans        &trans               &trans            &trans           &none           &none
   >;
 };
 #endif
@@ -201,10 +200,10 @@ fl {
 ms {
   label = "Mouse";
   bindings = <
-    &none  &kp LC(PG_UP)         &kp LC(W)       &kp LC(PG_DN)        &msc SCRL_UP     &msc SCRL_UP    &kp LC(PG_UP)        &mmv MOVE_Y(-1100)  &kp LC(PG_DN)      &none
-    &none  &lt SCROLL_ACCEL ESC  &mc LCTRL RCLK  &mkp LCLK            &msc SCRL_DOWN   &mkp LCLK       &mmv MOVE_X(-1400)   &mmv MOVE_Y(1100)   &mmv MOVE_X(1400)  &mc LCTRL RCLK
-    &none  &kp LC(A)             &kp LC(C)       &kp LC(V)            &kp PRINTSCREEN  &msc SCRL_DOWN  &msc SCRL_LEFT       &cv                 &msc SCRL_RIGHT    &none
-    &none  &none                 &mex ACC 0      &mt RIGHT_SHIFT DEL  &met NAV 0       &trans          &mt RIGHT_SHIFT DEL  &trans              &none              &none
+    &none  &kp LC(PG_UP)        &kp LC(W)          &kp LC(PG_DN)       &msc SCRL_UP    &msc SCRL_UP    &kp LC(PG_UP)       &mmv MOVE_Y(-1100)  &kp LC(PG_DN)        &none
+    &none  &lt SCROLL_ACCEL ESC &ht_kpmkp_b230w LCTRL RCLK &mkp LCLK           &msc SCRL_DOWN  &mkp LCLK  &mmv MOVE_X(-1400)       &mmv MOVE_Y(1100)   &mmv MOVE_X(1400)    &ht_kpmkp_b230w LCTRL RCLK
+    &none  &kp LC(A)            &kp LC(C)          &kp LC(V)          &kp PRINTSCREEN &msc SCRL_DOWN  &msc SCRL_LEFT      &copypaste          &msc SCRL_RIGHT      &none
+    &none  &none                &ht_moenda_h150 ACC 0   &mt RIGHT_SHIFT DEL &ht_momm_h150 NAV 0          &trans          &mt RIGHT_SHIFT DEL &trans              &none                &none
   >;
 };
 #endif
@@ -213,10 +212,10 @@ ms {
 scroll_accel {
   label = "ScrollAccel";
   bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
   >;
 };
 #endif
@@ -225,10 +224,10 @@ scroll_accel {
 ms_prime {
   label = "Mouse_prime";
   bindings = <
-    &none           &kp LC(PG_UP)       &mmv MOVE_Y(-1100)  &kp LC(PG_DN)        &msc SCRL_UP    &msc SCRL_UP     &kp LC(PG_UP)        &kp LC(W)       &kp LC(PG_DN)         &none
-    &mc LCTRL RCLK  &mmv MOVE_X(-1400)  &mmv MOVE_Y(1100)   &mmv MOVE_X(1400)    &mkp LCLK       &msc SCRL_DOWN   &mkp LCLK            &mc LCTRL RCLK  &lt SCROLL_ACCEL ESC  &none
-    &none           &msc SCRL_LEFT      &cv                 &msc SCRL_RIGHT      &msc SCRL_DOWN  &kp PRINTSCREEN  &kp LC(V)            &kp LC(C)       &kp LC(A)             &none
-    &none           &none               &trans              &mt RIGHT_SHIFT DEL  &trans          &met NAV 0       &mt RIGHT_SHIFT DEL  &mex ACC 0      &none                 &none
+    &none  &kp LC(PG_UP)  &mmv MOVE_Y(-1100)   &kp LC(PG_DN)   &msc SCRL_UP    &msc SCRL_UP    &kp LC(PG_UP)  &kp LC(W)          &kp LC(PG_DN)        &none
+   &ht_kpmkp_b230w LCTRL RCLK  &mmv MOVE_X(-1400) &mmv MOVE_Y(1100) &mmv MOVE_X(1400) &mkp LCLK  &msc SCRL_DOWN  &mkp LCLK      &ht_kpmkp_b230w LCTRL RCLK &lt SCROLL_ACCEL ESC &none
+    &none  &msc SCRL_LEFT &copypaste     &msc SCRL_RIGHT &msc SCRL_DOWN &kp PRINTSCREEN &kp LC(V)       &kp LC(C)         &kp LC(A)      &none
+    &none  &none          &trans         &mt RIGHT_SHIFT DEL &trans        &ht_momm_h150 NAV 0         &mt RIGHT_SHIFT DEL  &ht_moenda_h150 ACC 0          &none                &none
   >;
 };
 #endif
@@ -237,10 +236,10 @@ ms_prime {
 gaming {
   label = "Gaming";
   bindings = <
-    &kp ESC     &kp Q   &kp W      &kp E      &kp R     &kp T      &kp Y     &kp U      &kp I   &kp O
-    &kp TAB     &kp A   &kp S      &kp D      &kp F     &kp G      &kp H     &kp J      &kp K   &kp L
-    &kp LSHIFT  &kp N1  &kp N2     &kp N3     &kp N4    &to BASE   &kp N5    &kp N6     &kp N7  &kp N8
-    &none       &none   &kp LCTRL  &kp SPACE  &kp LALT  &kp ENTER  &kp RALT  &kp RCTRL  &none   &none
+    &kp ESC       &kp Q    &kp W      &kp E      &kp R      &kp T      &kp Y       &kp U       &kp I       &kp O
+    &kp TAB       &kp A    &kp S      &kp D      &kp F      &kp G      &kp H       &kp J       &kp K       &kp L
+    &kp LSHIFT    &kp N1   &kp N2     &kp N3     &kp N4     &to BASE   &kp N5      &kp N6      &kp N7      &kp N8
+    &none         &none    &kp LCTRL  &kp SPACE  &kp LALT   &kp ENTER  &kp RALT    &kp RCTRL   &none       &none
   >;
 };
 #endif
