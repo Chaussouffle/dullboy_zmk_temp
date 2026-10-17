@@ -1,0 +1,4 @@
+config SHIELD_DULLBOY
+    bool "dullboy (monobloc 4x10, 36 keys)"
+    select ZMK_KEYBOARD_CUSTOM
+

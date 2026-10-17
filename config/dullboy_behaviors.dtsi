@@ -1,0 +1,518 @@
+#include "layout.h"
+#include "layers.h"
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
+
+/* Noms stables : les delais et flavors sont definis dans les proprietes.
+ * hml/hmr : home-row mods gauche/droite ; ml : layer/lettre.
+ * le : layer/Entree ; al : layer/apostrophe ; ls : layer/sticky layer.
+ * sp : Shift ou NAV / Espace ou Backspace, selon Ctrl.
+ * lst : layer / Espace ou Tab, selon Ctrl ; mc : modificateur/clic.
+ * mb : modificateur/Backspace ou Delete ; met/mex : layer/raccourci.
+ * mod : modificateur/touche ; num : modificateur/touche du pave NAV.
+ * msl : modificateur/sticky layer ; slx : sticky layer 700 ms.
+ * Accents : lettre + c (circonflexe), d (trema), g (grave), a (aigu)
+ * puis m (mod-morph), par exemple acm et eam.
+ * n0..n9 : chiffres/symboles NAV ; nc/nd/ne/nh/np : ponctuation NAV.
+ */
+
+/ {
+    behaviors {
+        acm: acm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&a_circ>, <&a_circ_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        adm: adm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_ADI>, <&a_dier_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        agm: agm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&a_grav>, <&a_grav_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        al: al {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+            bindings = <&mo>, <&kp>;
+            hold-while-undecided;
+        };
+
+        ats: ats {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_AT>, <&ss>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bc: bc {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp LC(BACKSPACE)>;
+            mods = <MOD_LALT>;
+        };
+
+        bd: bd {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
+            mods = <MOD_LALT>;
+            keep-mods = <MOD_LALT>;
+        };
+
+        ccm: ccm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_CCED>, <&S_Cc>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ctd: ctd {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mod LCTRL LS(ENTER)>, <&kp LC(RSHIFT)>;
+        };
+
+        cv: cv {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(V)>, <&kp LC(C)>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        dg: dg {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_DQUO>, <&kp CH_DEG>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        eam: eam {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_EAC>, <&e_acut_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ecm: ecm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&e_circ>, <&e_circ_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        edm: edm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&e_dier>, <&e_dier_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        egm: egm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&e_grav>, <&e_grav_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        egui: egui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp END>, <&kp F4>;
+            mods = <MOD_LGUI>;
+            keep-mods = <MOD_LGUI>;
+        };
+
+        end: end {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp END>, <&egui>;
+            mods = <MOD_LCTL>;
+            keep-mods = <MOD_LCTL>;
+        };
+
+        endx: endx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(END)>, <&kp LA(X)>;
+            mods = <MOD_LCTL>;
+        };
+
+        hgui: hgui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp HOME>, <&kp D>;
+            mods = <MOD_LGUI>;
+            keep-mods = <MOD_LGUI>;
+        };
+
+        hml: hml {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29>;
+            hold-trigger-on-release;
+        };
+
+        hmr: hmr {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>;
+            hold-trigger-on-release;
+        };
+
+        home: home {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp HOME>, <&hgui>;
+            mods = <MOD_LCTL>;
+            keep-mods = <MOD_LCTL>;
+        };
+
+        icm: icm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&i_circ>, <&i_circ_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        idm: idm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&i_dier>, <&i_dier_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        le: le {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ls: ls {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+            bindings = <&mo>, <&slx>;
+        };
+
+        lst: lst {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <70>;
+            bindings = <&mo>, <&st>;
+        };
+
+        mb: mb {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&kp>, <&bd>;
+        };
+
+        mc: mc {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <230>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&mkp>;
+            hold-while-undecided;
+        };
+
+        ment: ment {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(ENTER)>, <&kp LC(ENTER)>;
+            mods = <MOD_LCTL>;
+        };
+
+        met: met {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&mo>, <&ment>;
+        };
+
+        mex: mex {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&mo>, <&endx>;
+        };
+
+        ml: ml {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <180>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        mod: mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        msl: msl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            flavor = "hold-preferred";
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&sl>;
+        };
+
+        n0: n0 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N0>, <&kp CH_DQUO>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n1: n1 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N1>, <&kp CH_EXCL>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n2: n2 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N2>, <&kp CH_SEM>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n3: n3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N3>, <&kp CH_COL>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n4: n4 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&num LALT N4>, <&num LS(LALT) CH_PLUS>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n5: n5 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&num LCTRL N5>, <&num LS(LCTRL) CH_MIN>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n6: n6 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&num LGUI N6>, <&num LS(LGUI) CH_SLSH>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n7: n7 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N7>, <&kp CH_AMPR>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n8: n8 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N8>, <&kp CH_AST>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        n9: n9 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N9>, <&kp CH_APOS>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        nc: nc {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&num LA(LCTRL) CH_COM>, <&num LA(LCTRL) CH_BSLH>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        nd: nd {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_DOT>, <&kp CH_PIPE>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        ne: ne {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_EQL>, <&kp CH_QUES>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        nh: nh {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_HASH>, <&kp CH_AT>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        np: np {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_PCT>, <&dead_grave_spc>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        num: num {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <230>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <180>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        ocm: ocm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&o_circ>, <&o_circ_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        odm: odm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&o_dier>, <&o_dier_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        oem: oem {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&oe>, <&S_OE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        osm: osm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&S_Os>, <&dotm>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        sb: sb {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp BACKSPACE>;
+            mods = <(MOD_LCTL | MOD_RCTL)>;
+        };
+
+        slx: slx {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&mo>;
+            release-after-ms = <700>;
+            quick-release;
+            ignore-modifiers;
+        };
+
+        snav: snav {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RSHIFT>, <&mo NAV>;
+            mods = <(MOD_LCTL | MOD_RCTL)>;
+        };
+
+        sp: sp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <10>;
+            bindings = <&snav>, <&sb>;
+        };
+
+        st: st {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp TAB>;
+            mods = <(MOD_LCTL | MOD_RCTL)>;
+        };
+
+        ucm: ucm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&u_circ>, <&u_circ_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        udm: udm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&u_dier>, <&u_dier_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ugm: ugm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&u_grav>, <&u_grav_caps>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        usm: usm {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CH_UND>, <&S_Os>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};

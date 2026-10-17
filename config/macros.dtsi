@@ -1,0 +1,437 @@
+#include "layout.h"
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+  behaviors {
+
+    /* =========================
+     * Dead + space (utile)
+     * ========================= */
+
+
+    maj_acc: maj_acc {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings = <&sk LSHIFT>, <&sl ACC>;
+    };
+
+    dead_tild_spc: dead_tild_spc {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_tap &kp CH_DTLD
+        &macro_tap &kp SPACE
+      >;
+    };
+
+    dead_grave_spc: dead_grave_spc {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_tap &kp CH_DGRV
+        &macro_tap &kp SPACE
+      >;
+    };
+
+    dead_circ_spc: dead_circ_spc {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_tap &kp CH_DCIR
+        &macro_tap &kp SPACE
+      >;
+    };
+
+    /* =========================
+     * Lettres accentuées (portable)
+     * dead + lettre
+     * ========================= */
+
+    a_grav: a_grav {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DGRV &kp A>;
+    };
+
+    a_grav_caps: a_grav_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DGRV &kp LS(A)>;
+    };
+
+    a_dier_caps: a_dier_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp LS(A)>;
+    };
+
+    a_circ: a_circ {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp A>;
+    };
+
+    a_circ_caps: a_circ_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp LS(A)>;
+    };
+
+    e_acut: e_acut {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <5>;
+      tap-ms = <5>;
+      bindings = <&macro_tap &kp CH_DACU &kp E>;
+    };
+
+    e_acut_caps: e_acut_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <5>;
+      tap-ms = <5>;
+      bindings = <&macro_tap &kp CH_DACU &kp LS(E)>;
+    };
+
+    e_grav: e_grav {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DGRV &kp E>;
+    };
+
+    e_grav_caps: e_grav_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DGRV &kp LS(E)>;
+    };
+
+    e_dier: e_dier {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp E>;
+    };
+
+    e_dier_caps: e_dier_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp LS(E)>;
+    };
+
+    e_circ: e_circ {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp E>;
+    };
+
+    e_circ_caps: e_circ_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp LS(E)>;
+    };
+
+    i_dier: i_dier {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp I>;
+    };
+
+    i_dier_caps: i_dier_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp LS(I)>;
+    };
+
+    i_circ: i_circ {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp I>;
+    };
+
+    i_circ_caps: i_circ_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp LS(I)>;
+    };
+
+    o_dier: o_dier {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp O>;
+    };
+
+    o_dier_caps: o_dier_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp LS(O)>;
+    };
+
+    o_circ: o_circ {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp O>;
+    };
+
+    o_circ_caps: o_circ_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp LS(O)>;
+    };
+
+    u_grav: u_grav {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DGRV &kp U>;
+    };
+
+    u_grav_caps: u_grav_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DGRV &kp LS(U)>;
+    };
+
+    u_dier: u_dier {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp U>;
+    };
+
+    u_dier_caps: u_dier_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DDIA &kp LS(U)>;
+    };
+
+    u_circ: u_circ {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp U>;
+    };
+
+    u_circ_caps: u_circ_caps {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <&macro_tap &kp CH_DCIR &kp LS(U)>;
+    };
+
+    /* =========================
+     * ALT-numpad (Windows)
+     * ========================= */
+
+    S_Cc: S_Cc {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_9 &kp KP_NUMBER_9
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    S_Os: S_Os {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_1 &kp KP_NUMBER_6
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    S_OE: S_OE {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_4 &kp KP_NUMBER_0
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    oe: oe {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_NUMBER_6
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    ss: ss {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_3
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    nbsp: nbsp {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_0
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    dotm: dotm {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_8 &kp KP_NUMBER_3
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    pmil: pmil {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_3 &kp KP_NUMBER_7
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    in: in {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_8 &kp KP_NUMBER_7 &kp KP_NUMBER_1 &kp KP_NUMBER_2
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    emd: emd {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_NUMBER_1
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    endash: endash {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_NUMBER_0
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    laq: laq {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_7 &kp KP_NUMBER_1
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+
+    raq: raq {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <0>;
+      bindings = <
+        &macro_press &kp LEFT_ALT
+        &macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_8 &kp KP_NUMBER_7
+        &macro_release &kp LEFT_ALT
+      >;
+    };
+  };
+};
+
+#include "mdp.dtsi"

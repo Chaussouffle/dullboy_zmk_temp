@@ -1,0 +1,255 @@
+#include <behaviors.dtsi>
+#include "layout.h"
+#include "layers.h"
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/bt.h>
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/* Index de layers : définis dans layers.h (inclus ci-dessus),
+ * donc disponibles aussi dans combos.dtsi et dullboy_behaviors.dtsi. */
+#include "macros.dtsi"
+#include "combos.dtsi"
+
+#include "dullboy_behaviors.dtsi"
+
+&lt {
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <0>;
+};
+
+&mt {
+    tapping-term-ms = <150>;
+};
+
+&sl {
+    release-after-ms = <300>;
+};
+
+&mmv {
+    time-to-max-speed-ms = <400>;
+    acceleration-exponent = <2>;
+};
+
+/ {
+
+  /* --- Scroll accel via input processor --- */
+  scroll_scaler: scroll_scaler {
+    compatible = "zmk,input-processor-scaler";
+    #input-processor-cells = <2>;
+    type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+    track-remainders;
+  };
+
+keymap {
+  compatible = "zmk,keymap";
+
+  /* --- Base layer selection -------------------------------------------------
+   * Change exactly one block from '#if 0' to '#if 1'.
+   * Only one base layer must be active at a time.
+   *
+   * Active choices:
+   *   - QWERTY
+   *   - COLEMAK
+   *   - WORKMAN
+   *   - DVORAK
+   *   - ERGOL
+   *
+   * The active base layer should also be reflected in any related define
+   * elsewhere in the file if your configuration uses one.
+   * ------------------------------------------------------------------------ */
+
+#if 0 // QWERTY
+base_qwerty {
+  label = "Base";
+  bindings = <
+    &kp Q           &kp W        &kp E         &kp R        &kp T                &kp Y                &kp U        &kp I         &kp O        &kp P
+    &ml MS A        &hml LGUI S  &hml LCTRL D  &hml LALT F  &hml LC(RSHFT) G     &hmr LC(RSHFT) H     &hmr LALT J  &hmr LCTRL K  &hmr LGUI L  &ml MS_PRIME SEMI
+    &ml MS_PRIME Z  &kp X        &bc           &kp C        &kp V                &kp B                &kp N        &kp M         &ls ACC ACC  &ml MS PERIOD
+    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+  >;
+};
+#endif
+
+#if 0 // COLEMAK
+base_colemak {
+  label = "Base";
+  bindings = <
+    &kp Q           &kp W        &kp F         &kp P        &kp G                &kp J                &kp L        &kp U         &kp Y        &ls ACC ACC
+    &ml MS A        &hml LGUI R  &hml LCTRL S  &hml LALT T  &hml LC(RSHFT) D     &hmr LC(RSHFT) H     &hmr LALT N  &hmr LCTRL E  &hmr LGUI I  &ml MS_PRIME O
+    &ml MS_PRIME Z  &kp X        &bc           &kp C        &kp V                &kp B                &kp K        &kp M         &kp COMMA    &ml MS PERIOD
+    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+  >;
+};
+#endif
+
+#if 0 // WORKMAN
+base_workman {
+  label = "Base";
+  bindings = <
+    &kp Q           &kp D        &kp R         &kp W        &kp B                &kp J                &kp F        &kp U         &kp P        &ls ACC ACC
+    &ml MS A        &hml LGUI S  &hml LCTRL H  &hml LALT T  &hml LC(RSHFT) G     &hmr LC(RSHFT) Y     &hmr LALT N  &hmr LCTRL E  &hmr LGUI O  &ml MS_PRIME I
+    &ml MS_PRIME Z  &kp X        &bc           &kp M        &kp C                &kp V                &kp K        &kp L         &kp COMMA    &ml MS PERIOD
+    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+  >;
+};
+#endif
+
+#if 0 // DVORAK
+base_dvorak {
+  label = "Base";
+  bindings = <
+    &ls ACC ACC     &kp COMMA    &kp PERIOD    &kp P        &kp Y                &kp F                &kp G        &kp C         &kp R        &kp L
+    &ml MS A        &hml LGUI O  &hml LCTRL E  &hml LALT U  &hml LC(RSHFT) I     &hmr LC(RSHFT) D     &hmr LALT H  &hmr LCTRL T  &hmr LGUI N  &ml MS_PRIME S
+    &ml MS_PRIME Z  &kp Q        &bc           &kp J        &kp K                &kp X                &kp B        &kp M         &kp W        &ml MS V
+    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+  >;
+};
+#endif
+
+#if 1 // ERGOL
+base_ergol {
+  label = "Base";
+  bindings = <
+    &kp Q           &kp C        &kp O         &kp P        &kp W                &kp J                &kp M        &kp D         &ls ACC ACC  &kp Z
+    &ml MS A        &hml LGUI S  &hml LCTRL E  &hml LALT N  &hml LC(RSHFT) F     &hmr LC(RSHFT) L     &hmr LALT R  &hmr LCTRL T  &hmr LGUI I  &ml MS_PRIME U
+    &ml MS_PRIME Y  &kp X        &bc           &kp V        &kp B                &kp PERIOD           &kp H        &kp G         &kp COMMA    &ml MS K
+    &none           &none        &lt FL TAB    &ls NAV CAR  &le NAV_PRIME ENTER  &le NAV_PRIME ENTER  &sp 0 0      &lt FL TAB    &none        &none
+  >;
+};
+#endif
+
+#if 1
+nav {
+  label = "Nav";
+  bindings = <
+    &hml LGUI ESC  &home     &kp UP           &end       &kp PG_UP       &nh     &n7               &n8               &n9    &np
+    &ctd           &kp LEFT  &kp DOWN         &kp RIGHT  &mb LC(LGUI) 0  &nc     &n4               &n5               &n6    &n0
+    &kp LEFT_ALT   &kp F2    &kp F4           &kp TAB    &kp PG_DN       &nd     &n1               &n2               &n3    &ne
+    &none          &none     &lst MS_PRIME 0  &trans     &trans          &trans  &mt RSHIFT SPACE  &lt MS_PRIME TAB  &none  &none
+  >;
+};
+#endif
+
+#if 1
+nav_prime {
+  label = "Nav_prime";
+  bindings = <
+    &np    &n7    &n8         &n9               &nh     &kp PG_UP       &home             &kp UP           &end       &hml LGUI ESC
+    &n0    &n4    &n5         &n6               &nc     &mb LC(LGUI) 0  &kp LEFT          &kp DOWN         &kp RIGHT  &ctd
+    &ne    &n1    &n2         &n3               &nd     &kp PG_DN       &kp TAB           &kp F4           &kp F2     &mt LEFT_ALT LS(ENTER)
+    &none  &none  &lt MS TAB  &mt RSHIFT SPACE  &trans  &trans          &mt RSHIFT SPACE  &lst MS_PRIME 0  &none      &none
+  >;
+};
+#endif
+
+#if 1
+acc {
+  label = "Acc";
+  bindings = <
+    &acm   &ccm   &ocm   &odm         &oem    &kp CH_DEG   &idm                &icm         &ls CAR CAR  &ucm
+    &agm   &eam   &egm   &ecm         &edm    &osm         &usm                &kp CH_MIN   &udm         &ugm
+    &adm   &laq   &raq   &endash      &emd    &kp CH_DTLD  &kp CH_DACU         &kp CH_DGRV  &kp CH_DCIR  &kp CH_DDIA
+    &none  &none  &nbsp  &ls CAR NAV  &trans  &kp CH_DEG   &al MAJACC CH_APOS  &nbsp        &none        &none
+  >;
+};
+#endif
+
+#if 1
+majacc {
+  label = "MajAcc";
+  bindings = <
+    &a_circ_caps  &S_Cc         &o_circ_caps  &o_dier_caps     &S_OE         &ss          &i_dier_caps  &i_circ_caps  &kp CH_DEG    &u_circ_caps
+    &a_grav_caps  &e_acut_caps  &e_grav_caps  &e_circ_caps     &e_dier_caps  &dotm        &S_Os         &kp CH_MIN    &u_dier_caps  &u_grav_caps
+    &a_dier_caps  &laq          &raq          &endash          &emd          &kp CH_DTLD  &kp CH_DACU   &kp CH_DGRV   &kp CH_DCIR   &kp CH_DDIA
+    &none         &none         &nbsp         &sk RIGHT_SHIFT  &in           &kp CH_DEG   &kp CH_APOS   &nbsp         &none         &none
+  >;
+};
+#endif
+
+#if 1
+car {
+  label = "Car";
+  bindings = <
+    &dead_circ_spc  &kp CH_LT    &kp CH_GT    &kp CH_DLR   &kp CH_PCT  &kp CH_AT    &kp CH_AMPR  &kp CH_AST  &kp CH_APOS  &dead_grave_spc
+    &kp CH_LCBR     &kp CH_LPAR  &kp CH_RPAR  &kp CH_RCBR  &kp CH_EQL  &kp CH_BSLH  &kp CH_PLUS  &kp CH_MIN  &kp CH_SLSH  &kp CH_DQUO
+    &dead_tild_spc  &kp CH_LBRK  &kp CH_RBRK  &kp CH_UND   &nh         &kp CH_PIPE  &kp CH_EXCL  &kp CH_SEM  &kp CH_COL   &kp CH_QUES
+    &none           &none        &nbsp        &trans       &pmil       &kp CH_DEG   &trans       &nbsp       &none        &none
+  >;
+};
+#endif
+
+#if 1
+fl {
+  label = "Fun";
+  bindings = <
+    &kp F9  &kp F10  &kp F11  &kp F12  &mdp1_macro  &kp INSERT            &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP  &kp LC(LA(DEL))
+    &kp F1  &kp F2   &kp F3   &kp F4   &mdp2_macro  &kp C_BRIGHTNESS_DEC  &kp LEFT_ALT       &kp LEFT_CONTROL  &kp LEFT_SHIFT   &kp C_BRIGHTNESS_INC
+    &kp F5  &kp F6   &kp F7   &kp F8   &mdp3_macro  &bt BT_CLR_ALL        &bt BT_SEL 0       &bt BT_SEL 1      &bt BT_SEL 2     &bt BT_SEL 3
+    &none   &none    &trans   &trans   &trans       &trans                &trans             &trans            &none            &none
+  >;
+};
+#endif
+
+#if 1
+ms {
+  label = "Mouse";
+  bindings = <
+    &none  &kp LC(PG_UP)         &kp LC(W)       &kp LC(PG_DN)        &msc SCRL_UP     &msc SCRL_UP    &kp LC(PG_UP)        &mmv MOVE_Y(-1100)  &kp LC(PG_DN)      &none
+    &none  &lt SCROLL_ACCEL ESC  &mc LCTRL RCLK  &mkp LCLK            &msc SCRL_DOWN   &mkp LCLK       &mmv MOVE_X(-1400)   &mmv MOVE_Y(1100)   &mmv MOVE_X(1400)  &mc LCTRL RCLK
+    &none  &kp LC(A)             &kp LC(C)       &kp LC(V)            &kp PRINTSCREEN  &msc SCRL_DOWN  &msc SCRL_LEFT       &cv                 &msc SCRL_RIGHT    &none
+    &none  &none                 &mex ACC 0      &mt RIGHT_SHIFT DEL  &met NAV 0       &trans          &mt RIGHT_SHIFT DEL  &trans              &none              &none
+  >;
+};
+#endif
+
+#if 1
+scroll_accel {
+  label = "ScrollAccel";
+  bindings = <
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  >;
+};
+#endif
+
+#if 1
+ms_prime {
+  label = "Mouse_prime";
+  bindings = <
+    &none           &kp LC(PG_UP)       &mmv MOVE_Y(-1100)  &kp LC(PG_DN)        &msc SCRL_UP    &msc SCRL_UP     &kp LC(PG_UP)        &kp LC(W)       &kp LC(PG_DN)         &none
+    &mc LCTRL RCLK  &mmv MOVE_X(-1400)  &mmv MOVE_Y(1100)   &mmv MOVE_X(1400)    &mkp LCLK       &msc SCRL_DOWN   &mkp LCLK            &mc LCTRL RCLK  &lt SCROLL_ACCEL ESC  &none
+    &none           &msc SCRL_LEFT      &cv                 &msc SCRL_RIGHT      &msc SCRL_DOWN  &kp PRINTSCREEN  &kp LC(V)            &kp LC(C)       &kp LC(A)             &none
+    &none           &none               &trans              &mt RIGHT_SHIFT DEL  &trans          &met NAV 0       &mt RIGHT_SHIFT DEL  &mex ACC 0      &none                 &none
+  >;
+};
+#endif
+
+#if 0 // GAMING — conservé, mais désactivé tant qu'aucun accès n'est défini
+gaming {
+  label = "Gaming";
+  bindings = <
+    &kp ESC     &kp Q   &kp W      &kp E      &kp R     &kp T      &kp Y     &kp U      &kp I   &kp O
+    &kp TAB     &kp A   &kp S      &kp D      &kp F     &kp G      &kp H     &kp J      &kp K   &kp L
+    &kp LSHIFT  &kp N1  &kp N2     &kp N3     &kp N4    &to BASE   &kp N5    &kp N6     &kp N7  &kp N8
+    &none       &none   &kp LCTRL  &kp SPACE  &kp LALT  &kp ENTER  &kp RALT  &kp RCTRL  &none   &none
+  >;
+};
+#endif
+
+  };
+};
+&msc_input_listener {
+  accel {
+    layers = <SCROLL_ACCEL>;
+    input-processors = <&scroll_scaler 8 1>; /* x8 */
+  };
+};

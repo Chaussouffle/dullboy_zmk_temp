@@ -1,0 +1,8 @@
+file_format: "1"
+id: dullboy
+name: dullboy (4x10, 36 keys)
+type: shield
+url: ""
+requires: [ nice_nano ]
+features:
+  - keys

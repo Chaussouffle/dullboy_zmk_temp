@@ -1,0 +1,38 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+  behaviors {
+
+    mdp1_macro: mdp1_macro {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <10>;
+      tap-ms = <15>;
+      bindings = <
+        &macro_tap &kp ENTER
+      >;
+    };
+
+    mdp2_macro: mdp2_macro {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <15>;
+        bindings = <
+        &macro_tap &kp ENTER
+        >;
+    };
+
+    mdp3_macro: mdp3_macro {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <20>;
+      tap-ms = <15>;
+      bindings = < 
+        &macro_tap &kp ENTER
+      >;
+    };
+
+  };
+};
