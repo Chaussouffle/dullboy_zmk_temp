@@ -73,7 +73,7 @@
             keep-mods = <MOD_LALT>;
         };
 
-        ccm: ccm {
+        cedm: cedm {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp CH_CCED>, <&S_Cc>;
