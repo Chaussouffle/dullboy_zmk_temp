@@ -1,7 +1,7 @@
 #include "layout.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dullboy_mdp.dtsi>
+#include <mdp.dtsi>
 
 / {
   behaviors {
