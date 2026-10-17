@@ -153,7 +153,7 @@ nav_prime {
 acc {
   label = "Acc";
   bindings = <
-    &acm   &ccm   &ocm   &odm         &oem    &kp CH_DEG   &idm                &icm         &ls CAR CAR  &ucm
+    &acm   &cedm   &ocm   &odm         &oem    &kp CH_DEG   &idm                &icm         &ls CAR CAR  &ucm
     &agm   &eam   &egm   &ecm         &edm    &osm         &usm                &kp CH_MIN   &udm         &ugm
     &adm   &laq   &raq   &endash      &emd    &kp CH_DTLD  &kp CH_DACU         &kp CH_DGRV  &kp CH_DCIR  &kp CH_DDIA
     &none  &none  &nbsp  &ls CAR NAV  &trans  &kp CH_DEG   &al MAJACC CH_APOS  &nbsp        &none        &none
